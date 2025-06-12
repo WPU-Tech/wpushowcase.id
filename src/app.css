@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Edu+QLD+Beginner:wght@400..700&display=swap');
+@import 'tailwindcss';
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+	--font-sans:
+		'DM Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol', 'Noto Color Emoji';
+	--font-serif: 'DM Serif Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+	--font-mono:
+		'DM Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+		'Courier New', monospace;
+	--font-handwriting: 'Edu QLD Beginner', ui-handwriting, cursive;
+}
+
+@utility container {
+	margin-inline: auto;
+	padding-inline: 2rem;
+}
+
+@layer base {
+	html {
+		@apply scroll-smooth;
+	}
+	body {
+		@apply bg-zinc-100;
+	}
+
+	p,
+	li,
+	td {
+		@apply leading-relaxed text-zinc-600;
+	}
+}
+
+@layer components {
+	.layout {
+		max-width: 68.75rem;
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

@@ -1,19 +1,62 @@
 import type { PageServerLoad } from './$types';
 import { env } from '$env/dynamic/private';
 
+type Response<T> = {
+	message: string;
+	status: boolean;
+	data: T;
+};
+
+type Metadata = {
+	totalProjects: number;
+	totalSeasons: number;
+	creators: string[];
+	links: string[];
+	episodes: string[];
+	seasonStats: {
+		season: number;
+		count: number;
+	}[];
+	earliestDate: string;
+	latestDate: string;
+};
+
+type Project = {
+	season: number;
+	count: number;
+	weeks: {
+		date: string;
+		projects: {
+			id: string;
+			identifier: string;
+			order: number;
+			branch: string;
+			season: number;
+			date: string;
+			creator: string | null;
+			link: string;
+			description: string;
+			screenshot: string | null;
+			creator_lower: string | null;
+			created_at: string;
+			updated_at: string | null;
+		}[];
+	}[];
+};
+
 export const load: PageServerLoad = async ({ url, fetch }) => {
 	const search = url.searchParams.get('search') || '';
 	const season = url.searchParams.get('season') || 1;
 
 	const responseMetadata = await fetch(`${env.SHOWCASE_API}/api/metadata`);
 
-	const meta = await responseMetadata.json();
+	const meta: Response<Metadata> = await responseMetadata.json();
 
 	const responseProject = await fetch(
 		`${env.SHOWCASE_API}/api/projects?search=${search}&season=${season}`
 	);
 
-	const projectsPromise = responseProject.json();
+	const projectsPromise: Promise<Response<Project>> = responseProject.json();
 
 	return { meta, projectsPromise: projectsPromise, search, season };
 };

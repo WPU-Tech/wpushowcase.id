@@ -1,12 +1,54 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="canonical" href="https://wpushowcase.com/" />
+		<meta name="robots" content="index, follow" />
+
+		<title>WPU Showcase Project – Kumpulan Project Komunitas WPU</title>
+		<meta
+			name="description"
+			content="Showcase project dari komunitas WPU. Tempat saling berbagi inspirasi, bukan ajang insecure, karena semua karya layak dihargai!"
+		/>
+		<meta
+			name="keywords"
+			content="project web, showcase WPU, web programming UNPAS, WPU, We Are Programmers UNITE, hasil belajar coding, project mahasiswa web, portofolio WPU, komunitas web UNPAS, HTML CSS JavaScript, belajar web development, inspirasi project web"
+		/>
+
+		<meta property="og:title" content="WPU Showcase Project – Kumpulan Project Komunitas WPU" />
+		<meta
+			property="og:description"
+			content="Showcase project dari komunitas WPU. Tempat saling berbagi inspirasi, bukan ajang insecure, karena semua karya layak dihargai!"
+		/>
+		<meta property="og:image" content="https://wpushowcase.id/og-image.avif" />
+		<meta property="og:url" content="https://wpushowcase.id" />
+		<meta property="og:type" content="website" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta
+			name="twitter:title"
+			content="WPU Showcase Project – Kumpulan Project Komunitas WPU"
+		/>
+		<meta
+			name="twitter:description"
+			content="Showcase project dari komunitas WPU. Tempat saling berbagi inspirasi, bukan ajang insecure, karena semua karya layak dihargai!"
+		/>
+		<meta name="twitter:image" content="https://wpushowcase.id/og-image.avif" />
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover" class="antialiased">
 		<div style="display: contents">%sveltekit.body%</div>
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"name": "WPU Showcase Project",
+				"url": "https://wpushowcase.id",
+				"description": "Showcase project dari komunitas WPU. Tempat saling berbagi inspirasi, bukan ajang insecure, karena semua karya layak dihargai!"
+			}
+		</script>
 	</body>
 </html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://wpushowcase.id/sitemap.xml

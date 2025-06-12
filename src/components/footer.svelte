@@ -13,11 +13,46 @@
 				</p>
 			</div>
 			<div class="grid gap-1">
-				<a class="text-zinc-500 hover:underline" href="https://discord.gg/wpu">Discord</a>
-				<a class="text-zinc-500 hover:underline" href="http://instagram.com/wpu.community">
+				<a
+					class="text-zinc-500 hover:underline"
+					target="_blank"
+					rel="noopener noreferer"
+					href="https://discord.gg/wpu"
+				>
+					Discord
+				</a>
+				<a
+					class="text-zinc-500 hover:underline"
+					target="_blank"
+					rel="noopener noreferer"
+					href="http://instagram.com/wpu.community"
+				>
 					Instagram
 				</a>
-				<a class="text-zinc-500 hover:underline" href="https://discord.gg/wpu">GitHub</a>
+				<a
+					class="text-zinc-500 hover:underline"
+					target="_blank"
+					rel="noopener noreferer"
+					href="https://discord.gg/wpu"
+				>
+					GitHub
+				</a>
+				<a
+					class="text-zinc-500 hover:underline"
+					target="_blank"
+					rel="noopener noreferer"
+					href="https://github.com/WPU-Tech"
+				>
+					GitHub WPU
+				</a>
+				<a
+					class="text-zinc-500 hover:underline"
+					target="_blank"
+					rel="noopener noreferer"
+					href="https://github.com/bellshade"
+				>
+					GitHub Bellshade
+				</a>
 			</div>
 		</div>
 	</div>

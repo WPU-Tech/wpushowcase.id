@@ -51,8 +51,13 @@
 </div>
 <main class="-translate-y-10">
 	<div class="mx-auto max-w-lg space-y-4 text-center">
-		<h1 class="text-center text-7xl"><span class="font-handwriting">Project</span> Showcase</h1>
-		<p class="text-lg">Explore the impressive projects created by our community members.</p>
+		<div>
+			<img src="/favicon.png" class="mx-auto size-20" alt="Logo WPU" />
+			<h1 class="text-center text-7xl">
+				<span class="font-handwriting">Project</span> Showcase
+			</h1>
+		</div>
+		<p class="text-lg">Jelajahi project-project keren dari para anggota komunitas kami.</p>
 		<ButtonLink href="https://discord.gg/wpu">
 			<Question class="size-5" />
 			Submit Project
@@ -111,7 +116,7 @@
 		</form>
 		{#if data.search}
 			<p>
-				Result for "{data.search}"
+				Hasil pencarian untuk "{data.search}"
 			</p>
 		{/if}
 		<div class="flex items-start gap-6">
@@ -152,7 +157,7 @@
 				{:else}
 					<div class="w-full">
 						<span class="font-handwriting text-sm">
-							{season.count} Projects
+							Total ada {season.count} project
 						</span>
 
 						<h2 class="text-4xl">
@@ -170,9 +175,9 @@
 											class="rounded-md bg-zinc-800 px-2 py-1 text-xs text-white"
 										>
 											{#if data.search}
-												found
+												ada
 											{/if}
-											{week.projects.length} projects
+											{week.projects.length} project
 										</span>
 									</Dialog.Trigger>
 									<Dialog.Portal>
@@ -187,7 +192,7 @@
 													<div
 														class="rounded-full border border-zinc-300 bg-white px-6 py-2 text-lg"
 													>
-														Result for "{data.search}"
+														Hasil pencarian untuk "{data.search}"
 													</div>
 												{/if}
 												<div
@@ -219,6 +224,7 @@
 													{#if project.screenshot}
 														<div class="aspect-video w-full">
 															<img
+																loading="lazy"
 																src="{data.apiUrl}/{project.screenshot}"
 																alt={project.link}
 																class="size-full rounded-xl border border-zinc-300 object-cover object-top"
@@ -239,7 +245,7 @@
 														<span
 															class="rounded-full bg-zinc-800 px-4 py-1 text-sm whitespace-nowrap text-white"
 														>
-															Sent by <strong
+															Dikirim oleh <strong
 																>{project.creator}</strong
 															>
 														</span>
@@ -257,7 +263,7 @@
 					</div>
 				{/if}
 			{:catch error}
-				<p>Something went wrong: {error.message}</p>
+				<p>Sepertinya Ada Masalah: {error.message}</p>
 			{/await}
 		</div>
 	</div>

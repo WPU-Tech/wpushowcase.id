@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { env } from '$env/dynamic/private';
+import { env } from '$env/dynamic/public';
 
 type Response<T> = {
 	message: string;
@@ -44,19 +44,19 @@ type Project = {
 	}[];
 };
 
+const apiUrl = env.PUBLIC_SHOWCASE_API;
+
 export const load: PageServerLoad = async ({ url, fetch }) => {
 	const search = url.searchParams.get('search') || '';
 	const season = url.searchParams.get('season') || 1;
 
-	const responseMetadata = await fetch(`${env.SHOWCASE_API}/api/metadata`);
+	const responseMetadata = await fetch(`${apiUrl}/api/metadata`);
 
 	const meta: Response<Metadata> = await responseMetadata.json();
 
-	const responseProject = await fetch(
-		`${env.SHOWCASE_API}/api/projects?search=${search}&season=${season}`
-	);
+	const responseProject = await fetch(`${apiUrl}/api/projects?search=${search}&season=${season}`);
 
 	const projectsPromise: Promise<Response<Project>> = responseProject.json();
 
-	return { meta, projectsPromise: projectsPromise, search, season };
+	return { meta, projectsPromise: projectsPromise, search, season, apiUrl };
 };

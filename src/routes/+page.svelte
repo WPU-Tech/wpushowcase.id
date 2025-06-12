@@ -219,7 +219,7 @@
 													{#if project.screenshot}
 														<div class="aspect-video w-full">
 															<img
-																src="http://localhost:3000/{project.screenshot}"
+																src="{data.apiUrl}/{project.screenshot}"
 																alt={project.link}
 																class="size-full rounded-xl border border-zinc-300 object-cover object-top"
 															/>

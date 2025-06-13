@@ -16,10 +16,10 @@
 
 <Banner />
 <main class="-translate-y-10">
-	<div class="mx-auto max-w-lg space-y-4 text-center">
+	<div class="mx-auto max-w-lg space-y-4 px-8 text-center">
 		<div>
 			<img src="/favicon.png" class="mx-auto size-20" alt="Logo WPU" />
-			<h1 class="text-center text-7xl">
+			<h1 class="text-center text-6xl sm:text-7xl">
 				<span class="font-handwriting">Project</span> Showcase
 			</h1>
 		</div>
@@ -32,23 +32,29 @@
 </main>
 <section>
 	<div class="layout">
-		<div class="flex justify-center gap-12 border-y border-y-zinc-300 py-8">
+		<div
+			class="flex flex-wrap items-center justify-center gap-4 border-y border-y-zinc-300 py-8 sm:flex-row sm:gap-12"
+		>
 			<div class="flex items-center gap-4">
-				<span class="text-5xl font-bold text-zinc-600">{data.meta.data.totalSeasons}</span>
+				<span class="text-3xl font-bold text-zinc-600 sm:text-5xl"
+					>{data.meta.data.totalSeasons}</span
+				>
 				<span class="text-zinc-600 uppercase">Season</span>
 			</div>
 			<div class="flex items-center gap-4">
-				<span class="text-5xl font-bold text-zinc-600"
+				<span class="text-3xl font-bold text-zinc-600 sm:text-5xl"
 					>{data.meta.data.creators.length}</span
 				>
 				<span class="text-zinc-600 uppercase">Nama</span>
 			</div>
 			<div class="flex items-center gap-4">
-				<span class="text-5xl font-bold text-zinc-600">{data.meta.data.totalProjects}</span>
+				<span class="text-3xl font-bold text-zinc-600 sm:text-5xl"
+					>{data.meta.data.totalProjects}</span
+				>
 				<span class="text-zinc-600 uppercase">Project</span>
 			</div>
 			<div class="flex items-center gap-4">
-				<span class="text-5xl font-bold text-zinc-600"
+				<span class="text-3xl font-bold text-zinc-600 sm:text-5xl"
 					>{data.meta.data.episodes.length}</span
 				>
 				<span class="text-zinc-600 uppercase">Episode</span>
@@ -85,19 +91,25 @@
 				Hasil pencarian untuk "{data.search}"
 			</p>
 		{/if}
-		<div class="flex items-start gap-6">
-			<div class="sticky top-20 grid min-w-60 gap-1">
-				{#each data.meta.data.seasonStats.reverse() as season}
-					{@const isActive = season.season == data.season}
-					<a
-						href="?season={season.season}&search={search}"
-						class="flex items-center justify-between rounded-lg border border-zinc-300 px-8 py-4 text-left hover:bg-zinc-100 data-[state=active]:bg-zinc-800 data-[state=active]:text-white"
-						data-state={isActive ? 'active' : undefined}
-					>
-						Season {season.season}
-						<ArrowRight class="size-5" />
-					</a>
-				{/each}
+		<div class="flex flex-col items-start gap-6 xl:flex-row">
+			<div class="top-20 w-full xl:sticky xl:max-w-60">
+				<span class="mb-4 block font-medium text-zinc-600 md:hidden">Pilih Season</span>
+				<div class="flex gap-1 xl:grid">
+					{#each data.meta.data.seasonStats as season}
+						{@const isActive = season.season == data.season}
+						<a
+							href="?season={season.season}&search={search}"
+							class="flex items-center justify-center rounded-lg border border-zinc-300 bg-white px-6 py-4 text-left hover:bg-zinc-100 data-[state=active]:bg-zinc-800 data-[state=active]:text-white md:grow md:justify-start md:px-8"
+							data-state={isActive ? 'active' : undefined}
+						>
+							<span class="hidden md:block">Season</span>
+							{season.season}
+							<ArrowRight
+								class="ml-auto hidden size-5 rotate-90 md:block xl:rotate-0"
+							/>
+						</a>
+					{/each}
+				</div>
 			</div>
 			{#await data.projectsPromise}
 				<div class="w-full space-y-4">
@@ -130,7 +142,7 @@
 							Season {season.season}
 						</h2>
 
-						<div class="mt-4 grid grid-cols-3 gap-1">
+						<div class="mt-4 grid gap-1 sm:grid-cols-2 md:grid-cols-3">
 							{#each season.weeks as week}
 								<Dialog.Root>
 									<Dialog.Trigger
@@ -198,11 +210,11 @@
 														</div>
 													{/if}
 													<h3
-														class="flex items-center justify-between gap-4"
+														class="flex flex-wrap items-center justify-between gap-4"
 													>
 														<a
 															href={project.link}
-															class="inline-block text-xl break-all hover:underline"
+															class="inline-block text-lg break-all hover:underline sm:text-xl"
 															target="_blank"
 															rel="noopener noreferrer"
 														>
@@ -216,7 +228,7 @@
 															>
 														</span>
 													</h3>
-													<div class="prose prose-lg [&_br]:my-2">
+													<div class="prose sm:prose-lg [&_br]:my-2">
 														{@html project.description}
 													</div>
 												</div>

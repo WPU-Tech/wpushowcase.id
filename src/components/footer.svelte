@@ -33,14 +33,6 @@
 					class="text-zinc-500 hover:underline"
 					target="_blank"
 					rel="noopener noreferer"
-					href="https://discord.gg/wpu"
-				>
-					GitHub
-				</a>
-				<a
-					class="text-zinc-500 hover:underline"
-					target="_blank"
-					rel="noopener noreferer"
 					href="https://github.com/WPU-Tech"
 				>
 					GitHub WPU

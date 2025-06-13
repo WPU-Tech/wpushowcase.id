@@ -95,11 +95,11 @@
 			<div class="top-20 w-full xl:sticky xl:max-w-60">
 				<span class="mb-4 block font-medium text-zinc-600 md:hidden">Pilih Season</span>
 				<div class="flex gap-1 xl:grid">
-					{#each data.meta.data.seasonStats as season}
+					{#each [...data.meta.data.seasonStats].reverse() as season}
 						{@const isActive = season.season == data.season}
 						<a
 							href="?season={season.season}&search={search}"
-							class="flex items-center justify-center rounded-lg border border-zinc-300 bg-white px-6 py-4 text-left hover:bg-zinc-100 data-[state=active]:bg-zinc-800 data-[state=active]:text-white md:grow md:justify-start md:px-8"
+							class="flex items-center justify-center gap-1 rounded-lg border border-zinc-300 bg-white px-6 py-4 text-left hover:bg-zinc-100 data-[state=active]:bg-zinc-800 data-[state=active]:text-white md:grow md:justify-start md:px-8"
 							data-state={isActive ? 'active' : undefined}
 						>
 							<span class="hidden md:block">Season</span>
